@@ -51,13 +51,14 @@ app.use('/api/v1/users', usersRoutes)
 // // IMPORTANT: export handler
 // module.exports = serverless(app);
 
+console.log(process.env.ENVIRONMENT, "==>> environment")
 
-if (true) {
+
+if (process.env.ENVIRONMENT !== "production") {
     app.listen(process.env.PORT, () => {
         console.log("Server is running on Port number", process.env.PORT)
     })
 }
-
-
 // Export for Vercel
-// export default app;
+export default app;
+
