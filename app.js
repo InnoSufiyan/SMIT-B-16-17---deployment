@@ -3,7 +3,7 @@ const dotenv = require('dotenv')
 const mongoose = require('mongoose')
 const dns = require('node:dns')
 const cors = require('cors')
-const serverless = require("serverless-http");
+// const serverless = require("serverless-http");
 
 const authRoutes = require('./routes/AuthRoutes')
 const usersRoutes = require('./routes/UsersRoutes')
@@ -71,10 +71,14 @@ app.use((err, req, res, next) => {
 })
 
 
-// IMPORTANT: export handler
-module.exports = serverless(app);
+// // IMPORTANT: export handler
+// module.exports = serverless(app);
 
 
-// app.listen(process.env.PORT, () => {
-//     console.log("Server is running on Port number", process.env.PORT)
-// })
+if (false) {
+    app.listen(process.env.PORT, () => {
+        console.log("Server is running on Port number", process.env.PORT)
+    })
+}
+
+module.exports = app
