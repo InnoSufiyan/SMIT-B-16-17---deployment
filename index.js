@@ -48,35 +48,11 @@ app.use('/api/v1/users', usersRoutes)
 
 
 
-
-app.use((err, req, res, next) => {
-    if (err == "Naseem") {
-        res.status(500).json({
-            status: true,
-            message: "This error is to show naseem bhai k error aya hai"
-        })
-    }
-    console.log("===>> going till here")
-
-
-    if (err == 'Database timeout') {
-        throw "new error"
-    }
-})
-
-app.use((err, req, res, next) => {
-    res.status(200).json({
-        status: true,
-        data: err
-    })
-})
-
-
 // // IMPORTANT: export handler
 // module.exports = serverless(app);
 
 
-if (false) {
+if (true) {
     app.listen(process.env.PORT, () => {
         console.log("Server is running on Port number", process.env.PORT)
     })
@@ -84,4 +60,4 @@ if (false) {
 
 
 // Export for Vercel
-export default app;
+// export default app;

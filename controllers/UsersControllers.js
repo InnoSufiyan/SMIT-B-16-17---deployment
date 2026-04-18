@@ -3,12 +3,6 @@ import jwt from 'jsonwebtoken'
 
 const getUsersController = async (req, res) => {
 
-    if (false) {
-        throw "Naseem"
-    } else {
-        throw "Database timeout"
-    }
-
     try {
         console.log(req.query, "===>>> query params")
 
@@ -49,13 +43,17 @@ const getUsersController = async (req, res) => {
         //     userName: "Khalid"
         // })
 
-        res.json({
+        return res.json({
             status: true,
             message: "All Users Fetched Successfully",
             data: users
         })
     } catch (error) {
-        throw "Error is arriving"
+        return res.json({
+            status: false,
+            message: error.message,
+
+        })
     }
 }
 
