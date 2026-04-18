@@ -1,11 +1,10 @@
-const jwt = require("jsonwebtoken")
-const Users = require("../models/UserModel")
-const bcrypt = require('bcrypt');
-const nodemailer = require('nodemailer');
-const sendEmailOTP = require("../utils/importantFunctions");
-const uuid = require('uuid')
-
-const { v4: uuidv4 } = uuid
+import jwt from 'jsonwebtoken'
+import Users from '../models/UserModel.js';
+import bcrypt from 'bcrypt'
+import nodemailer from 'nodemailer'
+// const sendEmailOTP = require("../utils/importantFunctions");
+import { sendEmailOTP } from '../utils/importantFunctions.js'
+import { v4 as uuidv4 } from 'uuid';
 
 
 
@@ -29,7 +28,7 @@ const signupController = async (req, res) => {
 
             console.log(uuidv4())
 
-            let otpCode = uuidv4().slice(0,4)
+            let otpCode = uuidv4().slice(0, 4)
 
 
             const messageByTheTransporter = await sendEmailOTP(req.body.email, otpCode)
@@ -107,7 +106,4 @@ const loginController = async (req, res) => {
     }
 }
 
-module.exports = {
-    signupController,
-    loginController
-}
+export { signupController, loginController }

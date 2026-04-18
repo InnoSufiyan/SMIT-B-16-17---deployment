@@ -1,12 +1,13 @@
-const express = require('express')
-const dotenv = require('dotenv')
-const mongoose = require('mongoose')
-const dns = require('node:dns')
-const cors = require('cors')
+
+import dotenv from 'dotenv'
+import dns from 'node:dns'
+import cors from 'cors'
+import mongoose from 'mongoose'
+import express from 'express'
+import authRoutes from './routes/AuthRoutes.js'
+import usersRoutes from './routes/UsersRoutes.js'
 // const serverless = require("serverless-http");
 
-const authRoutes = require('./routes/AuthRoutes')
-const usersRoutes = require('./routes/UsersRoutes')
 
 dns.setServers([
     '1.1.1.1', '8.8.8.8'
@@ -81,4 +82,6 @@ if (false) {
     })
 }
 
-module.exports = app
+
+// Export for Vercel
+export default app;

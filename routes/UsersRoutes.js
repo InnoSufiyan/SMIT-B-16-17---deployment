@@ -1,5 +1,5 @@
-const express = require('express')
-const { getUsersController, updateUsersController } = require('../controllers/UsersControllers')
+import express from 'express'
+import { getUsersController, updateUsersController } from '../controllers/UsersControllers.js'
 
 const usersRoutes = express.Router()
 
@@ -8,4 +8,4 @@ usersRoutes.get('/', getUsersController)
 usersRoutes.put('/', updateUsersController)
 // usersRoutes.delete('/users', deleteUserController)
 
-module.exports = usersRoutes
+export default usersRoutes
